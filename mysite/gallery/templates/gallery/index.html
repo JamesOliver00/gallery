@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'gallery/style.css' %}">
+    </head>
+    <body>
+        <!-- <h1></h1> -->
+        <h1>An Ordinary Picture Gallery</h1>
+        <ul>
+            <li>Search for pictures below or Suprise ME!</li>
+            <li>Liked pictures will show with red border</li>
+            
+            <li>Double Click to 'Like' a Picture</li>
+            <li>Double Click to 'Unlike' a Picture</li>
+
+            <li>Click 'View My Liked Pictures' to See all the pictures you've liked</li>
+        </ul>
+        <a id='liked-link' href="/likedPictures"><button id="liked-btn" type="button">View My Liked Pictures</button></a>
+
+        <div class="top-bar">
+            <input type="text" id="search" name="search" placeholder="Search here..." />
+            <button type="button" id="search-btn" onclick="search(0)"> Search </button>
+            <button type="button" onclick="search(1)" >Suprise ME!</button>
+        </div>
+        {% csrf_token %}
+        <div id="image-container">
+        </div>
+    </body>
+
+    <script>
+        let likedImages = JSON.parse("{{likedImages|safe}}".replace(/'/g, '"'));
+        const search_input = document.getElementById('search');
+        search_input.addEventListener("keypress", (event)  => {
+            if(event.key === "Enter"){
+                document.getElementById('search-btn').click();
+            }
+        });
+    </script>
+    <script src="{% static 'gallery/index.js' %}"></script>
+</html>

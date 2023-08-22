@@ -1,0 +1,125 @@
+
+:root{
+    font-family: 'Arial';
+    background: rgb(142,243,255);
+    background: linear-gradient(180deg, rgba(142,243,255,1) 24%, rgba(0,219,255,1) 100%);
+}
+h1{
+    text-align:center;
+    font-size:40px;
+}
+button{
+    border:none;
+    border-radius:5px;
+    height:50px;
+    font-size:20px;
+    background:#a5a5a5;
+    color:#FFF;
+    font-weight:bold;
+    transition-duration: 0.15s;
+}
+button:hover{
+    background-color: #666666;
+}
+input{
+    font-size:20px;
+}
+ul{
+    width:50%;
+    margin:auto;
+}
+li{
+    font-size:20px;
+    margin-bottom:10px;
+}
+#search{
+    border:none;
+    border-radius:3px;
+
+}
+#image-container{
+    
+    display:flex;
+    flex-wrap:wrap;
+    align-content:stretch;
+    
+    padding:20px;
+    row-gap:20px;
+    column-gap: 20px;
+    width:100%;
+    min-height:300px;
+}
+.search-img{
+    min-height:0px;
+    min-width:0px;
+    max-height:300px;
+    border-radius:3px;
+    transition-duration: 0.25s;
+    object-fit: contain;
+}
+.enlarge{
+    min-height:500px;
+    min-width:500px;
+    transition-duration: 0.25s;
+}
+.search-img:hover{
+    transform: scale(1.1,1.1);
+    z-index:2;
+}
+.img-wrapper::before{
+    position:relative;
+    display:inline-block;
+    content:'';
+    width:var(--icon-size);
+    height:var(--icon-size);
+}
+.img-box{
+    left:50px;
+}
+.hide{
+    height:0;
+    width:0;
+}
+.top-bar{
+    margin:20px auto ;
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+}
+#liked-link{
+    justify-self:end;
+    display:block;
+    margin:auto;
+    width:fit-content;
+}
+#liked-btn{
+    background-color:#f79489;
+}
+#liked-btn:hover{
+    transform:scale(1.2,1.2);
+    background-color:#d44636;
+}
+.liked{
+    border:5px solid #FF0000;
+}
+.fade{
+    animation:fade 0.35s;
+    animation-iteration-count: 1;
+}
+@keyframes fade{
+    0% {opacity: 0%;transform:scale(0.75);}
+    100% {opacity: 100%;transform:scale(1);}
+
+}
+#liked-container{
+    display:flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-items:flex-start;
+    background: #444;
+}
+.liked-img{
+    max-width:500px;
+    max-height:500px;
+    object-fit: contain;
+}

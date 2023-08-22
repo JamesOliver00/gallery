@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'gallery/style.css' %}">
+    </head>
+<body>
+    <a href="/"><button>Go Back</button></a>
+    <h1>Your Liked Pictures</h1>
+
+    <div id="liked-container">
+    {% for i in likedImages %}
+        <img src="{{i.urls}}" class="liked-img"  >
+    {% endfor%}
+    </div>
+</body>
+<script>
+    let likedImages = JSON.parse("{{likedImages|safe}}".replace(/'/g, '"'));
+</script>
+<script src="{% static 'gallery/index.js' %}"></script>
+</html>
